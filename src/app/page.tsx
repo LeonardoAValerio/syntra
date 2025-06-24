@@ -1,4 +1,5 @@
 import { AboutCards } from "@/components/about-card";
+import { Plans } from "@/components/plans";
 import Image from "next/image";
 
 export default function Home() {
@@ -71,6 +72,18 @@ export default function Home() {
             </p>
           </article>
         </div>
+      </main>
+      <main className="flex min-h-screen bg-primary-white text-primary-black p-24 gap-2w-full flex-wrap">
+        <div className="flex flex-col gap-30 justify-center w-1/2" >
+          <h2 className="text-5xl" >PLANOS</h2>
+          <article className="flex flex-col gap-8 text-3xl">
+            <p>
+              Comece já a construir sua nova solucação. 
+              Descubra tudo o que você pode criar com nosso plano gratuito. E, quando precisar de mais liberdade e recursos, o Pro estará pronto para acompanhar seu crescimento.
+            </p>
+          </article>
+        </div>
+        <Plans/>
       </main>
     </div>
   );
