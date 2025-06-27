@@ -28,7 +28,7 @@ export default function Home() {
   
   return (
     <div>
-      <main className="flex flex-col min-h-screen bg-second-black text-primary-white pt-28 p-12 items-center justify-around gap-12 md:p-24 md:flex-row">
+      <section className="flex flex-col min-h-screen bg-second-black text-primary-white pt-28 p-12 items-center justify-around gap-12 md:p-24 md:flex-row">
         <div className="flex flex-col gap-12">
           <div className="flex flex-col">
             <h2 className="text-4xl">Construa o seu sistema</h2>
@@ -39,17 +39,17 @@ export default function Home() {
           </div>
         </div>
         <div className="">
-          <Image alt="quebra cabeça" src={"/quebra-cabeca-de-quatro-pecas.png"} width={534} height={534}></Image>
+          <img src={"/quebra-cabeca-de-quatro-pecas.png"}></img>
         </div>
-      </main>
-      <main className="flex min-h-screen bg-white text-primary-black pt-28 p-12 md:p-24 flex-col gap-12">
+      </section>
+      <section className="flex min-h-screen bg-white text-primary-black pt-28 p-12 md:p-24 flex-col gap-12">
         <div className="flex flex-col gap-4">
           <h2 className="text-4xl md:text-5xl" >EXEMPLOS</h2>
           <h3 className="text-2xl" >Solucione qualquer problema com a nossa ajuda</h3>
         </div>
         <AboutCards cards={cards}></AboutCards>
-      </main>
-      <main className="flex min-h-screen bg-second-black text-primary-white pt-28 p-12 md:p-24 gap-12 w-full">
+      </section>
+      <section className="flex min-h-screen bg-second-black text-primary-white pt-28 p-12 md:p-24 gap-12 w-full">
         <div className="hidden md:flex md:flex-col w-1/2 text-5xl gap-8 justify-center items-center">
           <div>S</div>
           <div>Y</div>
@@ -72,9 +72,9 @@ export default function Home() {
             </p>
           </article>
         </div>
-      </main>
-      <main className="overflow-x-scroll flex min-h-screen bg-primary-white text-primary-black pt-28 p-12 md:p-24 gap-12 w-full flex-wrap">
-        <div className="flex flex-col gap-20 md:gap-30 justify-center w-full md:w-1/2" >
+      </section>
+      <section className="flex min-h-screen bg-primary-white text-primary-black pt-28 p-12 md:p-24 gap-2 w-full">
+        <div className="flex flex-col gap-20 md:gap-20 justify-center w-full md:w-1/2" >
           <h2 className="text-4xl md:text-5xl" >PLANOS</h2>
           <article className="gap-8 text-xl md:text-3xl">
             <p>
@@ -84,7 +84,7 @@ export default function Home() {
           </article>
         </div>
         <Plans/>
-      </main>
+      </section>
     </div>
   );
 }
