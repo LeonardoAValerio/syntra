@@ -76,8 +76,8 @@ export default function Home() {
             </article>
           </div>
         </section>
-        <section id="planos" className="flex min-h-screen bg-primary-white text-primary-black pt-28 p-12 md:p-24 gap-2 w-full">
-          <div className="flex flex-col gap-20 md:gap-20 justify-center w-full md:w-1/2" >
+        <section id="planos" className="flex min-h-screen bg-primary-white text-primary-black pt-28 p-12 md:p-24 gap-2 w-full flex-wrap">
+          <div className="flex flex-col gap-20 md:gap-20 justify-center w-full" >
             <h2 className="text-4xl md:text-5xl" >PLANOS</h2>
             <article className="gap-8 text-xl md:text-3xl">
               <p>
