@@ -1,6 +1,6 @@
 export function Plans() {
     return (
-        <table className="text-2xl w-1/2 border border-black text-center text-primary-black">
+        <table className="text-xl md:w-1/2 border border-black text-center text-primary-black">
           <thead>
             <tr className="bg-primary-black text-primary-white">
               <th className="p-4 border border-black"></th>
