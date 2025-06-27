@@ -39,7 +39,6 @@ export default function RootLayout({
       <body
         className={`${michroma.variable} antialiased`}
       >
-        <Header />
         {children}
       </body>
     </html>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Plans() {
     return (
         <div className="overflow-x-auto md:w-full">
@@ -43,10 +45,10 @@ export function Plans() {
               <tr>
                 <td className="p-2 md:p-4 border border-black"></td>
                 <td className="p-2 md:p-4 border border-black">
-                  <button className="bg-black text-white rounded-full px-6 py-2 hover:bg-gray-800 transition">Obter</button>
+                  <button className="bg-black text-white rounded-full px-6 py-2 hover:bg-gray-800 transition"><Link href="/login">Obter</Link></button>
                 </td>
                 <td className="p-2 md:p-4 border border-black">
-                  <button className="bg-black text-white rounded-full px-6 py-2 hover:bg-gray-800 transition">Obter</button>
+                  <button className="bg-black text-white rounded-full px-6 py-2 hover:bg-gray-800 transition"><Link href="/login">Obter</Link></button>
                 </td>
               </tr>
             </tbody>
