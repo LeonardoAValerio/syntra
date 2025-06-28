@@ -9,10 +9,6 @@ export default function CreateUser() {
                         <h2 className="text-3xl">Criar sua conta</h2>
                     </div>
                     <div className="flex flex-col gap-2 p-2">
-                        <label>Nome</label>
-                        <input type="email" className="border-b p-2"></input>
-                    </div>
-                    <div className="flex flex-col gap-2 p-2">
                         <label>Email</label>
                         <input type="email" className="border-b p-2"></input>
                     </div>
