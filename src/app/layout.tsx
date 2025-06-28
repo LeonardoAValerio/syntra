@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Michroma } from "next/font/google";
+import { Michroma } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/header";
 import Script from "next/script";
 
 const michroma = Michroma({
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
   description: "Syntra",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
