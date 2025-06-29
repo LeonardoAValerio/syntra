@@ -21,7 +21,7 @@ export default function Login() {
                             <button className="hover:pointer cursor-pointer" type="submit">Entrar</button>
                         </div>
                         <div className="text-primary-white h-8 flex items-center justify-center">
-                            <button><Link href={"/login/criar"}>Criar nova conta -></Link></button>
+                            <button><Link href={"/login/criar"}>Criar nova conta ⇾</Link></button>
                         </div>
                     </div>
                 </form>

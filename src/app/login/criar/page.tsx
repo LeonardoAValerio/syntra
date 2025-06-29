@@ -21,7 +21,7 @@ export default function CreateUser() {
                             <button className="hover:pointer cursor-pointer" type="submit">Criar</button>
                         </div>
                         <div className="text-primary-white h-8 flex items-center justify-center">
-                            <button><Link href={"/login"}>Login -></Link></button>
+                            <button><Link href={"/login"}>Login ⇾</Link></button>
                         </div>
                     </div>
                 </form>
