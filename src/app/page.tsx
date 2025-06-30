@@ -88,6 +88,39 @@ export default function Home() {
           </div>
           <Plans/>
         </section>
+        <section className="flex min-h-screen bg-second-black text-primary-white pt-28 p-12 md:p-24 w-full gap-12 justify-between">
+          <form className="w-3/4 border border-primary-white rounded-3xl p-12 flex flex-col gap-8">
+            <h3 className="text-3xl">Enviei o formulário para entrarmos em contato</h3>
+            <div className="flex flex-col gap-4 w-full text-2xl">
+              <label htmlFor="name">Nome</label>
+              <input id="name" type="text" required className="border rounded-2xl border-primary-white py-2 text-xl text-primary-gray px-4" placeholder="Informe seu nome"></input>
+            </div>
+            <div className="flex flex-col gap-4 w-full text-2xl">
+              <label htmlFor="phone">Telefone</label>
+              <input id="phone" type="tel" required className="border rounded-2xl border-primary-white py-2 text-xl text-primary-gray px-4" placeholder="Informe seu telefone"></input>
+            </div>
+            <div className="flex flex-col gap-4 w-full text-2xl">
+              <label htmlFor="email">Email</label>
+              <input id="email" type="email" required className="border rounded-2xl border-primary-white py-2 text-xl text-primary-gray px-4" placeholder="Informe seu email"></input>
+            </div>
+            <div className="flex flex-col gap-4 w-full text-2xl">
+              <label htmlFor="about">Assunto</label>
+              <textarea id="about" required className="border rounded-2xl border-primary-white py-2 text-xl text-primary-gray px-4" placeholder="Informe sobre o seu assunto ou dúvida"></textarea>
+            </div>
+            <button type="submit" className="text-3xl bg-primary-white rounded-3xl text-second-black w-80 h-16">
+              ENVIAR
+            </button>
+          </form>
+          <article className="flex flex-col gap-20 w-1/2">
+            <h3 className="text-7xl">NOS CONTATE</h3>
+            <p className="text-4xl">
+              Ficou com alguma dúvida? Fique a vontade para entrar em contato com nossa equipe para fazer qualquer pergunta, ou entender melhor oque a Syntra propôe com demonstrações do sistema
+            </p>
+          </article>
+        </section>
+        <footer>
+          
+        </footer>
       </div>
     </main>
   );
