@@ -2,6 +2,7 @@ import { AboutCards } from "@/components/about-card";
 import { Header } from "@/components/header";
 import { Plans } from "@/components/plans";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const cards = [
@@ -88,8 +89,8 @@ export default function Home() {
           </div>
           <Plans/>
         </section>
-        <section className="flex min-h-screen bg-second-black text-primary-white pt-28 p-12 md:p-24 w-full gap-12 justify-between">
-          <form className="w-3/4 border border-primary-white rounded-3xl p-12 flex flex-col gap-8">
+        <section className="flex min-h-screen bg-second-black text-primary-white pt-28 p-12 md:p-24 w-full gap-12 justify-between flex-wrap md:flex-nowrap">
+          <form className="w-full md:w-1/2 border border-primary-white rounded-3xl p-12 flex flex-col gap-8">
             <h3 className="text-3xl">Enviei o formulário para entrarmos em contato</h3>
             <div className="flex flex-col gap-4 w-full text-2xl">
               <label htmlFor="name">Nome</label>
@@ -111,15 +112,38 @@ export default function Home() {
               ENVIAR
             </button>
           </form>
-          <article className="flex flex-col gap-20 w-1/2">
-            <h3 className="text-7xl">NOS CONTATE</h3>
-            <p className="text-4xl">
+          <article className="flex flex-col gap-10 md:gap-20 w-full md:w-1/2">
+            <h3 className="text-4xl md:text-6xl">NOS CONTATE</h3>
+            <p className="text-2xl md:text-4xl">
               Ficou com alguma dúvida? Fique a vontade para entrar em contato com nossa equipe para fazer qualquer pergunta, ou entender melhor oque a Syntra propôe com demonstrações do sistema
             </p>
           </article>
         </section>
-        <footer>
-          
+        <footer className="flex-col md:flex-row flex min-h-102 bg-primary-black text-primary-white p-10 md:p-20 w-full gap-12 justify-around">
+          <div className="w-full md:w-1/2 flex flex-col">
+            <div className="flex h-24 w-full justify-start items-center gap-1 tracking-widest text-4xl">
+              <div className="relative w-20 h-20">
+                <Image src={"/syntra-icon.png"} alt="Icon syntra" fill></Image>
+              </div>
+              <div>y</div>
+              <div>n</div>
+              <div>t</div>
+              <div>r</div>
+              <div>a</div>
+            </div>
+            <article className="text-2xl">
+              Syntra é uma plataforma flexível e intuitiva para criar sistemas personalizados, adaptados às suas necessidades e ao crescimento do seu negócio.
+            </article>
+          </div>
+          <div className="hidden md:block w-px bg-primary-white self-stretch"></div>
+          <div className="flex flex-col gap-10">
+            <h3 className="text-3xl">Contatos</h3>
+            <ul className="ml-8 flex flex-col gap-4 text-xl">
+              <li>leonardoaugustovalerio@gmail.com</li>
+              <li>(45) 999548631</li>
+              <li><Link href={"https://www.linkedin.com/in/leonardo-val%C3%A9rio-701a5a309/"}>Linkedin</Link></li>
+            </ul>
+          </div>
         </footer>
       </div>
     </main>
