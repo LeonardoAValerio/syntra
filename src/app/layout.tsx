@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Michroma } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { UserProvider } from "@/contexts/UserContext";
 
 const michroma = Michroma({
   weight: "400",
@@ -38,7 +39,9 @@ export default async function RootLayout({
       <body
         className={`${michroma.variable} antialiased`}
       >
-        {children}
+        <UserProvider>
+          {children}
+        </UserProvider>
       </body>
     </html>
   );

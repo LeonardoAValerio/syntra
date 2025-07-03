@@ -1,22 +1,43 @@
 'use client';
 
+import { Api } from "@/lib/api/api";
 import { auth } from "@/lib/firebase/firebase";
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, OAuthProvider } from "firebase/auth";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
+import { User, UserContext } from "@/contexts/UserContext";
+import { jwtDecode } from "jwt-decode";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const router = useRouter();
+    const {setUser} = useContext(UserContext)
+
+    const login = async (tokenFirebase: string) => {
+        try {
+            const data = await Api.auth.login({token: tokenFirebase});
+            const {token} = data;
+
+            Cookies.set("auth_token", token, {expires: 7, path: "/"});
+            setUser(jwtDecode<User>(token));
+            
+            router.push("/app");
+        } catch(err) {
+            console.error(err);
+        }
+    }
 
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         try {
             e.preventDefault();
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
-
-            console.log("Deu certo");
-        } catch (e) {
-            console.log("Deu errado: ", e);
+            const token = await userCredential.user.getIdToken();
+            login(token);
+        } catch (err) {
+            console.error(err);
         }
     }
 
@@ -25,7 +46,7 @@ export default function Login() {
         try {
             const result = await signInWithPopup(auth, provider);
             const token = await result.user.getIdToken();
-            console.log("Token Firebase:", token);
+            login(token);
         } catch (err) {
             console.error(err);
         }
@@ -36,6 +57,7 @@ export default function Login() {
         try {
             const result = await signInWithPopup(auth, provider);
             const credential = OAuthProvider.credentialFromResult(result);
+            login(credential?.idToken || "");
         } catch (err) {
             console.error(err);
         }
