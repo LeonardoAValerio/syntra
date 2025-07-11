@@ -1,12 +1,27 @@
 import axios from "axios"
 import { AuthRoute } from "./routes/auth/AuthRoute";
+import Cookies from "js-cookie";
+import { UserRoute } from "./routes/user/UserRoute";
 
-export class Api {
-    private static api = axios.create({
-        baseURL: process.env.API_URL
-    });
+const api = axios.create({
+    baseURL: "http://localhost:8080/"
+});
 
-    static get auth() {
-        return new AuthRoute(this.api);
+api.interceptors.request.use(
+  (config) => {
+    const token = Cookies.get("token");
+    if (token) {
+      config.headers.Authorization = `${token}`;
     }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+
+export const clientApi = {
+  user: new UserRoute(api),
+  auth: new AuthRoute(api)
 }

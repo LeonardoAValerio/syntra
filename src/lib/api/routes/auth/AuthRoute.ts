@@ -9,7 +9,7 @@ export class AuthRoute extends BaseRoute {
     }
 
     async login(dto: AuthDto): Promise<LoginDto> {
-        const response = await this.api.post<LoginDto>(this.path("login"), dto);
+        const response = await this.api.post<LoginDto>(this.path("login/oAuth"), dto);
         const data = response.data;
 
         return data;

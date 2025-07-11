@@ -1,28 +1,31 @@
 'use client';
 
-import { Api } from "@/lib/api/api";
 import { auth } from "@/lib/firebase/firebase";
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, OAuthProvider } from "firebase/auth";
 import Link from "next/link";
 import { useContext, useState } from "react";
 import Cookies from "js-cookie";
-import { useRouter } from "next/router";
-import { User, UserContext } from "@/contexts/UserContext";
+import { useRouter } from "next/navigation";
+import { UserContext } from "@/contexts/UserContext";
 import { jwtDecode } from "jwt-decode";
+import { User } from "@/lib/api/routes/user/user";
+import { clientApi } from "@/lib/api/api";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter();
-    const {setUser} = useContext(UserContext)
+    const {setUser, reloadingUser} = useContext(UserContext)
 
     const login = async (tokenFirebase: string) => {
         try {
-            const data = await Api.auth.login({token: tokenFirebase});
+            const data = await clientApi.auth.login({token: tokenFirebase});
             const {token} = data;
+            console.log(data);
 
-            Cookies.set("auth_token", token, {expires: 7, path: "/"});
+            Cookies.set("token", token, {expires: 7, path: "/"});
             setUser(jwtDecode<User>(token));
+            reloadingUser();
             
             router.push("/app");
         } catch(err) {
