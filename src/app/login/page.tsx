@@ -19,6 +19,7 @@ export default function Login() {
 
     const login = async (tokenFirebase: string) => {
         try {
+            console.log(tokenFirebase);
             const data = await clientApi.auth.login({token: tokenFirebase});
             const {token} = data;
             console.log(data);
@@ -38,7 +39,7 @@ export default function Login() {
             e.preventDefault();
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const token = await userCredential.user.getIdToken();
-            login(token);
+            await login(token);
         } catch (err) {
             console.error(err);
         }
@@ -49,7 +50,7 @@ export default function Login() {
         try {
             const result = await signInWithPopup(auth, provider);
             const token = await result.user.getIdToken();
-            login(token);
+            await login(token);
         } catch (err) {
             console.error(err);
         }
@@ -60,7 +61,7 @@ export default function Login() {
         try {
             const result = await signInWithPopup(auth, provider);
             const credential = OAuthProvider.credentialFromResult(result);
-            login(credential?.idToken || "");
+            await login(credential?.idToken || "");
         } catch (err) {
             console.error(err);
         }

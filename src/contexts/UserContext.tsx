@@ -33,20 +33,10 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
 
   useEffect(() => {
-    async function verifyIsCompleteUser() {
-      const user = await clientApi.user.profile();
-      if(!user.isCompleteInfos) {
-        router.push("/app/complete-infos")
-      }
-      setUser(user)
-    }
-
     const token = Cookies.get("token");
     if (token) {
       try {
-        verifyIsCompleteUser();
         const decoded = jwtDecode<User>(token);
-        console.log(decoded)
         setUser(decoded);
       } catch (e) {
         console.error("Erro ao decodificar token:", e);

@@ -3,14 +3,21 @@
 import { UserContext } from "@/contexts/UserContext";
 import { clientApi } from "@/lib/api/api";
 import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function CompleteInfos() {
     const [name, setName] = useState("");
     const [cpf, setCpf] = useState("");
-    const { setUser, reloadingUser } = useContext(UserContext);
+    const { user, setUser, reloadingUser } = useContext(UserContext);
     const router = useRouter();
 
+    useEffect(() => {
+        console.log("Usuário: ", user)
+        if (user === null) {
+            router.push("/");
+        }
+    }, [user]);
+        
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         

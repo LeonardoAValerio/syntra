@@ -1,5 +1,6 @@
 'use client';
 
+import { clientApi } from "@/lib/api/api";
 import { auth } from "@/lib/firebase/firebase";
 import { Message } from "@/lib/types/message";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -25,6 +26,8 @@ export default function CreateUser() {
 
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const token = await userCredential.user.getIdToken();
+            await clientApi.auth.createUser({token})
             console.log("Criou a conta:", userCredential);
             setMessages([{text: "Usuário criado com sucesso. Vá para a página de login e entre no sistema", type: "success"}]); // limpa erros após sucesso
         } catch (e) {
